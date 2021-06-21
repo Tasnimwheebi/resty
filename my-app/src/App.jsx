@@ -1,43 +1,39 @@
 // import logo from './logo.svg';
 import React from 'react';
-import './App.scss';
+import Form from './form';
 import Header from './header';
-import Main from './main';
-
-const Footer = () => {
-  return (
-    <footer>
-      &copy; 2018 Code fellows
-    </footer>
-  );
-}
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header" >
-//         <h1>RESTy</h1>
-//         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        
-//       </header>
-//       <label htmlFor="">URL : </label>
-//       <input type="text" />
-//       <button>GO!</button>
-//     </div>
-
-//   );
-// }
-function App() {
+import Footer from './footer';
+import Result from './result';
+import './App.scss';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // url:'',
+      // count:0,
+      headers:{},
+      results:[],
+      // method:'Get',
+    }
+ } 
+ handleForm = (headers , results)=>{
+   console.log('I am here !!!!!');
+   this.setState({headers,results});
+ }
+ render(){
   return (
     <React.Fragment>
       <div className="App">
       <Header className="App-header"/>
-      <Main />
+      <Form handler = {this.handleForm}/>
+      <Result result={this.state.results} headers={this.state.headers} />
       <Footer />
      </div> 
     </React.Fragment>
     
   );
+  }
+
 }
 
 export default App;
