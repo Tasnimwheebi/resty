@@ -1,6 +1,6 @@
 import React from 'react';
 import JSONPretty  from 'react-json-pretty';
-import './App.scss';
+// import './App.scss';
 const JSONPrettyMon = require('react-json-pretty/dist/acai');
 class Result extends React.Component {
     render() {
