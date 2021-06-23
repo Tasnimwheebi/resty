@@ -1,9 +1,9 @@
 // import logo from './logo.svg';
 import React from 'react';
-import Form from './form';
-import Header from './header';
-import Footer from './footer';
-import Result from './result';
+import Form from './components/form/form';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import Result from './components/results/result';
 import './App.scss';
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +27,8 @@ class App extends React.Component {
       <Header className="App-header"/>
       <Form handler = {this.handleForm}/>
       <Result result={this.state.results} headers={this.state.headers} />
+      {/* <History/> */}
+      {/* <If/> */}
       <Footer />
      </div> 
     </React.Fragment>
