@@ -4,6 +4,7 @@ import Form from './components/form/form';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Result from './components/results/result';
+import History from './components/history/history';
 import './App.scss';
 class App extends React.Component {
   constructor(props) {
@@ -11,13 +12,20 @@ class App extends React.Component {
     this.state = {
       // url:'',
       // count:0,
-      headers:{},
+      // headers:{},
       results:[],
       // method:'Get',
+      url: "",
+      route: "",
+      body: [],
+      headers: {},
+      history: [],
+      count: 0,
     }
  } 
+ 
  handleForm = (headers , results)=>{
-   console.log('I am here !!!!!');
+  //  console.log('I am here !!!!!');
    this.setState({headers,results});
  }
  render(){
@@ -27,7 +35,7 @@ class App extends React.Component {
       <Header className="App-header"/>
       <Form handler = {this.handleForm}/>
       <Result result={this.state.results} headers={this.state.headers} />
-      {/* <History/> */}
+      <History/>
       {/* <If/> */}
       <Footer />
      </div> 

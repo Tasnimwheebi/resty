@@ -6,9 +6,11 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url:'',
-      method:'get',
-      body:{},
+      // counter: 1
+      history: [],
+      headers: {},
+      body: [],
+      url: "",
     }
  } 
 
@@ -31,8 +33,9 @@ class Form extends React.Component {
       
         // return headers;
     try{   
-const data = await  superagent[this.state.method](this.state.url).send(this.state.body).set('Content-Type', 'application/json');
-        console.log('*********data********',data.body);
+const data = await  superagent[this.state.method](this.state.url).send(this.state.body)
+.set('Content-Type', 'application/json');
+        // console.log('*********data********',data.body);
         const headers = data.headers; 
         this.props.handler(headers,data.body);
        
@@ -43,18 +46,46 @@ const data = await  superagent[this.state.method](this.state.url).send(this.stat
           localStorage.setItem('object',JSON.stringify([newObject]));
         }
        else if(savedArr){
-         savedArr.forEach(item=>{
-           if(item.url !==url && item.body !== body && item.method !== method){
-           savedArr.push(localStorage.setItem(JSON.stringify([newObject])))
+         
+         let items= savedArr.find(item =>{
+              // console.log('heloooooooooooooooo', item); 
+         return ((item.url === url) && (item.body === body) && (item.method === method));
+        });
+           if(!items){
+            // console.log('hhhhhhhhhhhhhhhhhhhhhhhhttttttttttttttt',newObject); 
+           savedArr.push(newObject)
+           localStorage.setItem('object',JSON.stringify(savedArr))
          } 
-         })
+         }
         
-       }
+   
        } catch(error){
          console.error(error)
           
        }
-      }
+    }
+    // handleInput = async (e) => {
+    //   e.preventDefault();
+  
+    //   // LocalStorage
+    //   let url = this.props.url;
+    //   let route = this.props.route;
+      
+  
+    //   try{
+    //     let raw = await superagent(route,url);
+    //     let data = raw.body;
+    //     console.log(data);
+    //     let count = data.count;
+    //     localStorage.setItem(this.state.counter, (`${url} ${route}`))
+    //     let counter = this.state.counter + 1;
+    //     this.setState({ counter })
+    //     this.props.handler(count,data,route,url);
+    //     // this.props.toggleLoading;
+    //   } catch (e) {
+    //     this.props.handler(e);
+    //   }
+    // };
       handleMethod = e =>{
         
           let method = e.target.name;
