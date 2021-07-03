@@ -75,7 +75,11 @@ In this final phase of the RESTy build, we will be adding some more fidelity to 
 
 * As a user, I want to see all of my previous queries as a separate page so that I can browse them in greater detail
 * As a user, I would like to view a separate “Help” page so I can learn how the application works
+
+
 PR URL :
+
+[link](https://github.com/Tasnimwheebi/resty/pull/5)
 
 **Installation**
 
