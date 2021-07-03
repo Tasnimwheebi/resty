@@ -64,3 +64,25 @@ In this phase of the RESTy build, we will be adding some more fidelity to the ap
 
 **UML**
 ![IMG](uml-28.PNG)
+
+
+### LAB - 29
+**Routing**
+### Phase 4 Requirements
+In this final phase of the RESTy build, we will be adding some more fidelity to the application, including a menu with a ore detailed view of our history, as well as an about us page.
+
+**The following user stories detail the major functionality for this phase of the project.**
+
+* As a user, I want to see all of my previous queries as a separate page so that I can browse them in greater detail
+* As a user, I would like to view a separate “Help” page so I can learn how the application works
+PR URL :
+
+**Installation**
+
+dependencies :
+
+    "react-router-dom"
+
+**uml**
+
+![IMG](uml-28.PNG)
